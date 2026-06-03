@@ -2,6 +2,7 @@ import { NavLink, useNavigate } from 'react-router-dom'
 import { useAuth } from '@/context/AuthContext'
 import { cn } from '@/lib/utils'
 import { LayoutDashboard, CreditCard, Calculator, Bell, Settings, LogOut } from 'lucide-react'
+import { useNotifications } from '@/hooks/useNotifications'
 
 const nav = [
     { to: '/dashboard', label: 'Dashboard', icon: LayoutDashboard },
@@ -13,6 +14,9 @@ const nav = [
 
 export default function Sidebar() {
     const { signOut, user } = useAuth()
+
+    const { unreadCount } = useNotifications()
+
     const navigate = useNavigate()
 
     const handleSignOut = async () => {
@@ -30,13 +34,26 @@ export default function Sidebar() {
             {/* Nav Bar */}
 
             <nav className='flex-1 px-3 py-4 space-y-1'>
+                
                 {nav.map(({ to, icon: Icon, label }) => (
-                    <NavLink key={to} to={to} className={({ isActive }) => cn(
-                        'flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium transition-colors', isActive ? 'bg-white text-zinc-950' : 'text-zinc-400 hover:text-white hover:bg-zinc-800'
-                    )}>
-                        <Icon size={16} />
-                        {label}
-                    </NavLink>
+                <NavLink
+                    key={to}
+                    to={to}
+                    className={({ isActive }) => cn(
+                    'flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium transition-colors',
+                    isActive
+                        ? 'bg-white text-zinc-950'
+                        : 'text-zinc-400 hover:text-white hover:bg-zinc-800'
+                    )}
+                >
+                    <Icon size={16} />
+                    <span className="flex-1">{label}</span>
+                    {label === 'Notifications' && unreadCount > 0 && (
+                    <span className="bg-red-500 text-white text-xs rounded-full w-4 h-4 flex items-center justify-center">
+                        {unreadCount}
+                    </span>
+                    )}
+                </NavLink>
                 ))}
             </nav>
 

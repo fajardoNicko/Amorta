@@ -6,6 +6,8 @@ import Signup from '@/pages/Signup'
 import Dashboard from '@/pages/Dashboard'
 import Tracker from '@/pages/Tracker'
 import Settings from '@/pages/Settings'
+import Simulator from '@/pages/Simulator'
+import Notifications from '@/pages/Notifications'
 
 export default function App() {
   return (
@@ -22,10 +24,10 @@ export default function App() {
           <ProtectedRoute><Tracker /></ProtectedRoute>
         } />
         <Route path="/simulator" element={
-          <ProtectedRoute><AppLayout><div>Simulator</div></AppLayout></ProtectedRoute>
+          <ProtectedRoute><Simulator /></ProtectedRoute>
         } />
         <Route path="/notifications" element={
-          <ProtectedRoute><AppLayout><div>Notifications</div></AppLayout></ProtectedRoute>
+          <ProtectedRoute><Notifications /></ProtectedRoute>
         } />
         <Route path="/settings" element={
           <ProtectedRoute><Settings /></ProtectedRoute>
