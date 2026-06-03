@@ -5,6 +5,7 @@ import Login from '@/pages/Login'
 import Signup from '@/pages/Signup'
 import Dashboard from '@/pages/Dashboard'
 import Tracker from '@/pages/Tracker'
+import Settings from '@/pages/Settings'
 
 export default function App() {
   return (
@@ -27,7 +28,7 @@ export default function App() {
           <ProtectedRoute><AppLayout><div>Notifications</div></AppLayout></ProtectedRoute>
         } />
         <Route path="/settings" element={
-          <ProtectedRoute><AppLayout><div>Settings</div></AppLayout></ProtectedRoute>
+          <ProtectedRoute><Settings /></ProtectedRoute>
         } />
         <Route path="*" element={<Navigate to="/login" replace />} />
       </Routes>
