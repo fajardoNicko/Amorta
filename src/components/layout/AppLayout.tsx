@@ -1,4 +1,4 @@
-import Sidebar from './sidebar'
+import Sidebar from './Sidebar'
 import MobileNav from './MobileNav'
 
 export default function AppLayout({ children }: { children: React.ReactNode }) {
