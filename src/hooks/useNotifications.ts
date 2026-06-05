@@ -4,7 +4,7 @@ import { useAuth } from '@/context/AuthContext'
 import { useInstallments } from './useInstallments'
 import { useUser } from './useUser'
 import { generateNotifications } from '@/lib/generateNotifications'
-import type { NotificationPayload } from '@/lib/generateNotifications'
+// import type { NotificationPayload } from '@/lib/generateNotifications'
 
 export interface AppNotification {
   id: string
