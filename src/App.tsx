@@ -18,7 +18,7 @@ export default function App() {
         <Route path="/dashboard" element={
           <ProtectedRoute><Dashboard /></ProtectedRoute>
         } />
-        // with
+        
         <Route path="/tracker" element={
           <ProtectedRoute><Tracker /></ProtectedRoute>
         } />
