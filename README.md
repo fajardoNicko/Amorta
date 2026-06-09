@@ -124,7 +124,7 @@ All tables use **Row Level Security (RLS)** — users can only access their own 
 
 ```bash
 # Clone the repo
-git clone https://github.com/yourusername/amorta.git
+git clone https://github.com/fajardoNicko/amorta.git
 cd amorta
 
 # Install dependencies
